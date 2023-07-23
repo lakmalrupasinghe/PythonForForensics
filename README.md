@@ -15,5 +15,16 @@ This would contain different programming examples and use cases for Digital Fore
 
 
 ```{python}
-print("Hello Python!")
+from scapy.all import *
+
+def packet_callback(packet):
+    if packet[TCP].payload:
+        tcp_payload = str(packet[TCP].payload)
+        if "HTTP" in tcp_payload:
+            print("Found HTTP packet: ", tcp_payload)
+
+# Start sniffing
+sniff(filter="tcp", prn=packet_callback)
+
+
 ```
