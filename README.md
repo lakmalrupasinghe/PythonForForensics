@@ -12,7 +12,7 @@ This would contain different programming examples and use cases for Digital Fore
 
 ### Usage of Scapy library
 
-'''
+'''python
 from scapy.all import *
 
 def packet_callback(packet):
